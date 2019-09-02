@@ -1,0 +1,13 @@
+number.parse('3,501,123').say();
+number.parse('12,541,908').say();
+number.parse('516,117,223').say();
+number.parse('39349927').say();
+number.parse('-3873342').say();
+number.parse('-4,571,136').say();
+number.parse('-42,215,000').say();
+number.parse('-609,213,916').say();
+number.parse('#xDE,ad,c0,d3').say();
+number.parse('-#xA,B1,6A,55').say();
+number.parse('+#x7337').say();
+number.parse('-#b101,10110100,11011110').say();
+number.parse('-#b1010010100001110').say()
