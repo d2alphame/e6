@@ -1,6 +1,6 @@
 grammar number {
 
-  token TOP { <integer> }
+  token TOP { <single> }
   
   token integer           { <dec_integer>       |
                             <dec_integer_sep>   |
@@ -8,6 +8,13 @@ grammar number {
                             <hex_integer_sep>   |
                             <bin_integer>       |
                             <bin_integer_sep>   } 
+  
+  token single            { <dec_single> | <hex_single> | <bin_single> }
+
+  # Single precision floating point numbers.
+  token dec_single        { (<dec_integer> | <dec_integer_sep>) '.' \d+ }
+  token hex_single        { (<hex_integer> | <hex_integer_sep>) '.' <hex_digits>+ }
+  token bin_single        { (<bin_integer> | <bin_integer_sep>) '.' <bin_digits>+ }
   
   token dec_integer_sep   { <pos_neg>? \d ** 1..3 (',' \d ** 3 )* }
   token dec_integer       { <pos_neg>? \d+ }
