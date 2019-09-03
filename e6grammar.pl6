@@ -1,6 +1,6 @@
 grammar number {
 
-  token TOP { <single> }
+  token TOP { <double> }
   
   token integer           { <dec_integer>       |
                             <dec_integer_sep>   |
@@ -9,7 +9,7 @@ grammar number {
                             <bin_integer>       |
                             <bin_integer_sep>   } 
   
-  token double            { <dec_double> | <hex_double> | <bin_double> }
+  token double            { <dec_double> | <hex_double> | <bin_double> | <scientific> }
 
   token scientific        { <dec_scientific>      |
                             <dec_scientific_sep>  |
