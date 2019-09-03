@@ -11,14 +11,30 @@ grammar number {
   
   token single            { <dec_single> | <hex_single> | <bin_single> }
 
-  token scientific        { <dec_scientific>    |
-                            <hex_scientific>    |
-                            <bin_scientific>    }
-   
-  # Numbers in Scientific notation
-  token dec_scientific    { <dec_single> 'E' (<dec_integer> | <dec_integer_sep>) }
-  token hex_scientific    { <hex_single> 'X' (<hex_integer> | <hex_integer_sep>) }
-  token bin_scientific    { <bin_single> 'B' (<bin_integer> | <bin_integer_sep>) }
+  token scientific        { <dec_scientific>      |
+                            <dec_scientific_sep>  |
+                            <hex_scientific>      |
+                            <hex_scientific_sep>  |
+                            <bin_scientific>      |
+                            <bin_scientific_sep>  }
+
+
+  # Numbers written in scientific notation for decimal, binary and hexadecimal
+  
+  token dec_scientific      { <pos_neg>? \d '.' \d+ 'E' <pos_neg>? \d+ }
+  token dec_scientific_sep  { <pos_neg>? \d '.' \d+ 
+                              'E' <pos_neg>? \d ** 1..3 (',' \d ** 3)* }
+
+  token hex_scientific      { <pos_neg>? '#x' <hex_digits> '.' <hex_digits>+
+                              'X' <pos_neg>? <hex_digits>+ }
+  token hex_scientific_sep  { <pos_neg>? '#x' <hex_digits> '.' <hex_digits>+
+                              'X' <pos_neg>? <hex_digits> ** 1..2 (',' <hex_digits> ** 2)* }
+
+  token bin_scientific      { <pos_neg>? '#b' <bin_digits> '.' <bin_digits>+
+                              'X' <pos_neg>? <bin_digits>+ }
+  token bin_scientific_sep  { <pos_neg>? '#x' <bin_digits> '.' <bin_digits>+
+                              'X' <pos_neg>? <bin_digits> ** 1..8 (',' <bin_digits> ** 8)* } 
+
   
   # Single precision floating point numbers.
   token dec_single        { (<dec_integer> | <dec_integer_sep>) '.' \d+ }
