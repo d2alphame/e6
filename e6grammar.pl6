@@ -9,7 +9,7 @@ grammar number {
                             <bin_integer>       |
                             <bin_integer_sep>   } 
   
-  token single            { <dec_single> | <hex_single> | <bin_single> }
+  token double            { <dec_double> | <hex_double> | <bin_double> }
 
   token scientific        { <dec_scientific>      |
                             <dec_scientific_sep>  |
@@ -36,10 +36,10 @@ grammar number {
                               'X' <pos_neg>? <bin_digits> ** 1..8 (',' <bin_digits> ** 8)* } 
 
   
-  # Single precision floating point numbers.
-  token dec_single        { (<dec_integer> | <dec_integer_sep>) '.' \d+ }
-  token hex_single        { (<hex_integer> | <hex_integer_sep>) '.' <hex_digits>+ }
-  token bin_single        { (<bin_integer> | <bin_integer_sep>) '.' <bin_digits>+ }
+  # Double precision floating point numbers.
+  token dec_double        { (<dec_integer> | <dec_integer_sep>) '.' \d+ }
+  token hex_double        { (<hex_integer> | <hex_integer_sep>) '.' <hex_digits>+ }
+  token bin_double        { (<bin_integer> | <bin_integer_sep>) '.' <bin_digits>+ }
   
   # Integers in decimal
   token dec_integer_sep   { <pos_neg>? \d ** 1..3 (',' \d ** 3 )* }
