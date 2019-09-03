@@ -31,9 +31,9 @@ grammar number {
                               'X' <pos_neg>? <hex_digits> ** 1..2 (',' <hex_digits> ** 2)* }
 
   token bin_scientific      { <pos_neg>? '#b' <bin_digits> '.' <bin_digits>+
-                              'X' <pos_neg>? <bin_digits>+ }
-  token bin_scientific_sep  { <pos_neg>? '#x' <bin_digits> '.' <bin_digits>+
-                              'X' <pos_neg>? <bin_digits> ** 1..8 (',' <bin_digits> ** 8)* } 
+                              'B' <pos_neg>? <bin_digits>+ }
+  token bin_scientific_sep  { <pos_neg>? '#b' <bin_digits> '.' <bin_digits>+
+                              'B' <pos_neg>? <bin_digits> ** 1..8 (',' <bin_digits> ** 8)* } 
 
   
   # Double precision floating point numbers.
