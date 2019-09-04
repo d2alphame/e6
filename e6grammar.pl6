@@ -2,6 +2,8 @@ grammar e6grammar {
 
   token TOP 				{ <number> }
   
+  token identifier { <id_dash> | <id_no_dash> }
+  
   token number 				{ <integer> | <single> | <double> }
   
   token integer           { <dec_integer>       |
@@ -61,6 +63,11 @@ grammar e6grammar {
                             <bin_digits> ** 1..8
                             (',' <bin_digits> ** 8)* }
 
+	# Match identifiers. Note that identifiers must be preceded by the '$' sigil
+  token id_dash 		  { '$' <[a..zA..Z_~]><[a..zA..Z0..9_~]>*
+  							'-' <[a..zA..Z_~]><[a..zA..Z0..9_~]>* }
+  token id_no_dash		  { '$' <[a..zA..Z_~]><[a..zA..Z0..9_~]>* }
+  
   token boolean				{ 'true' | 'false' }
   token pos_neg           { ['+' | '-'] }
   token hex_digits        { <[a..fA..F0..9]> }
