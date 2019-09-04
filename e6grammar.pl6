@@ -7,7 +7,9 @@ grammar number {
                             <hex_integer>       |
                             <hex_integer_sep>   |
                             <bin_integer>       |
-                            <bin_integer_sep>   } 
+                            <bin_integer_sep>   }
+							
+  token single			  { <double> 's' }
   
   token double            { <dec_double> | <hex_double> | <bin_double> | <scientific> }
 
