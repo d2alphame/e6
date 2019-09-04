@@ -61,6 +61,7 @@ grammar e6grammar {
                             <bin_digits> ** 1..8
                             (',' <bin_digits> ** 8)* }
 
+  token boolean				{ 'true' | 'false' }
   token pos_neg           { ['+' | '-'] }
   token hex_digits        { <[a..fA..F0..9]> }
   token bin_digits        { <[01]> }
