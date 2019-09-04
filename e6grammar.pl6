@@ -1,6 +1,8 @@
-grammar number {
+grammar e6grammar {
 
-  token TOP { <double> }
+  token TOP 				{ <number> }
+  
+  token number 				{ <integer> | <single> | <double> }
   
   token integer           { <dec_integer>       |
                             <dec_integer_sep>   |
