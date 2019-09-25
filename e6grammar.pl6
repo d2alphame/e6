@@ -54,8 +54,8 @@ grammar e6grammar {
 	# Integers in hexadecimal
 	token hex_integer			{	<pos_neg>? '#x' <hex_digits>+ }
 	token hex_integer_sep		{	<pos_neg>? '#x' 
-                        		<hex_digits> ** 1..2 
-                            	(',' <hex_digits> ** 2)* }
+                        			<hex_digits> ** 1..2 
+                            		(',' <hex_digits> ** 2)* }
   
 	# Integers in binary
 	token bin_integer			{	<pos_neg>? '#b' <bin_digits>+ }
