@@ -48,3 +48,4 @@ uint64
 int64
 boolean
 record
+toggle
